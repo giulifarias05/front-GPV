@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+        />
+        <link rel="stylesheet" href="css/style.css" />
+        <meta charset="UTF-8" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Creepster&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            #textSquare {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Navbar -->
+        <header>
+            <button id="abrir" class="abrir-menu">
+                <i class="bi bi-list"></i>
+            </button>
+            <nav class="nav" id="nav">
+                <button class="cerrar-menu" id="cerrar">
+                    <i class="bi bi-x"></i>
+                </button>
+                <ul class="nav-list">
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Qué hacemos</a></li>
+                    <li><a href="#">lenguage</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <img class="logo" src="/img/logo.jpeg" />
+
+        <!-- The modal -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <div class="d-flex justify-content-end">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col text-center">
+                            <h2 class="font-weight-bold text-uppercase">
+                                Crea tu cuento
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="question-space"></div>
+
+                <!-- formulario hecho con select -->
+                <form action="/consultar" method="post">
+                    <!-- Genero literario -->
+                    <h3>Elige un género literario:</h3>
+                    <select name="genero" id="selectOption1">
+                        <option value="Comedia">Comedia</option>
+                        <option value="Terror">Terror</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Misterio">Misterio</option>
+                        <option value="Infantil">Infantil</option>
+                    </select>
+                    <div class="question-space"></div>
+                    <!-- Esto hace que haya espacio entre pregunta y pregunta -->
+                    <!-- Longitud del cuento -->
+                    <h3>Longitud del cuento:</h3>
+                    <select name="longitud">
+                        <option value="largo">Largo</option>
+                        <option value="muy corto">Corto</option>
+                        <option value="corto">Medio</option>
+                    </select>
+                    <div class="question-space"></div>
+                    <!-- Palabras claves Imput -->
+                    <h3>Palabras claves:</h3>
+                    <input
+                        type="text"
+                        name="clave"
+                        placeholder="Type here..."
+                    />
+                    <div class="question-space"></div>
+                    <!-- Boton crear cuento -->
+                    <button type="submit" class="btn btn-violet btn-lg">
+                        Generar cuento
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Nueva modal con el cuento ya creado -->
+        <% if (mostrarRecuadro) { %>
+            <div id="randomModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeRandomModal()">&times;</span>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col text-center">
+                                <h2
+                                    class="font-weight-bold text-uppercase lobster-font"
+                                >
+                                    <%= tit %>
+                                </h2>
+                                <p class="open-sans-font"><%= cont %></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>        <% if (mostrarRecuadro) { %>
+                    <div id="randomModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close" onclick="closeRandomModal()">&times;</span>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col text-center">
+                                        <h2
+                                            class="font-weight-bold text-uppercase lobster-font"
+                                        >
+                                            <%= tit %>
+                                        </h2>
+                                        <p class="open-sans-font"><%= cont %></p>
+                                        <p class="open-sans-font"><%= Hola%></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        <% } %>
+
+        <!-- Footer con iconos -->
+        <footer class="footer">
+            <svg
+                class="icons1"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="#000000"
+                viewBox="0 0 256 256"
+            >
+                <path
+                    d="M32,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H40A8,8,0,0,1,32,64Zm8,72h72a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16Zm88,48H40a8,8,0,0,0,0,16h88a8,8,0,0,0,0-16Zm109.66,13.66a8,8,0,0,1-11.32,0L206,177.36A40,40,0,1,1,217.36,166l20.3,20.3A8,8,0,0,1,237.66,197.66ZM184,168a24,24,0,1,0-24-24A24,24,0,0,0,184,168Z"
+                ></path>
+                
+            </svg>
+            <svg
+                class="icons1"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="#000000"
+                viewBox="0 0 256 256"
+            >
+                <path
+                    d="M208,24H72A32,32,0,0,0,40,56V224a8,8,0,0,0,8,8H192a8,8,0,0,0,0-16H56a16,16,0,0,1,16-16H208a8,8,0,0,0,8-8V32A8,8,0,0,0,208,24ZM120,40h48v72L148.79,97.6a8,8,0,0,0-9.6,0L120,112Zm80,144H72a31.82,31.82,0,0,0-16,4.29V56A16,16,0,0,1,72,40h32v88a8,8,0,0,0,12.8,6.4L144,114l27.21,20.4A8,8,0,0,0,176,136a8,8,0,0,0,8-8V40h16Z"
+                ></path>
+            </svg>
+            <svg
+                class="icons2"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="#000000"
+                viewBox="0 0 256 256"
+            >
+                <path
+                    d="M229.66,109.66l-48,48a8,8,0,0,1-11.32-11.32L204.69,112H165a88,88,0,0,0-85.23,66,8,8,0,0,1-15.5-4A103.94,103.94,0,0,1,165,96h39.71L170.34,61.66a8,8,0,0,1,11.32-11.32l48,48A8,8,0,0,1,229.66,109.66ZM192,208H40V88a8,8,0,0,0-16,0V208a16,16,0,0,0,16,16H192a8,8,0,0,0,0-16Z"
+                ></path>
+            </svg>
+            <svg
+                class="icons2"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="#000000"
+                viewBox="0 0 256 256"
+            >
+                <path
+                    d="M144,80a8,8,0,0,1,8-8h96a8,8,0,0,1,0,16H152A8,8,0,0,1,144,80Zm104,40H152a8,8,0,0,0,0,16h96a8,8,0,0,0,0-16Zm0,48H176a8,8,0,0,0,0,16h72a8,8,0,0,0,0-16Zm-96.25,22a8,8,0,0,1-5.76,9.74,7.55,7.55,0,0,1-2,.26,8,8,0,0,1-7.75-6c-6.16-23.94-30.34-42-56.25-42s-50.09,18.05-56.25,42a8,8,0,0,1-15.5-4c5.59-21.71,21.84-39.29,42.46-48a48,48,0,1,1,58.58,0C129.91,150.71,146.16,168.29,151.75,190ZM80,136a32,32,0,1,0-32-32A32,32,0,0,0,80,136Z"
+                ></path>
+            </svg>
+            <button id="obj1" class="obj1" onclick="crearCuento()"></button>
+        </footer>
+
+        <!-- Código JS -->
+        <script src="./js/main.js"></script>
+        <script>
+            var modal1 = document.getElementById("myModal");
+            var modal2 = document.getElementById("randomModal");
+
+            function openModal(modal) {
+                modal.style.display = "block";
+            }
+            function closeModal() {
+                var modal = document.getElementById("myModal");
+                modal.style.display = "none";
+            }
+            function closeRandomModal() {
+                modal2.style.display = "none";
+            }
+            function submitForm() {
+                closeModal(modal1);
+                // Agregar un retraso de 2 segundos antes de mostrar la segunda modal
+                setTimeout(function () {
+                    openModal(modal2);
+                }, 2000); // 2000
+            }
+
+            function crearCuento() {
+                var modal = document.getElementById("myModal");
+                modal.style.display = "block";
+            }
+        </script>
+    </body>
+</html>
